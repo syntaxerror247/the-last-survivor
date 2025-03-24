@@ -1,0 +1,210 @@
+[gd_scene load_steps=30 format=3 uid="uid://dwmb22mwf3kx"]
+
+[ext_resource type="Texture2D" uid="uid://dqtwcv068n5gw" path="res://assets/Torch Animated.png" id="1_s1444"]
+[ext_resource type="Script" uid="uid://wyy5i1qatrkj" path="res://objects/torch.gd" id="1_x0om8"]
+[ext_resource type="Texture2D" uid="uid://ctdrf26y775yq" path="res://assets/Torch empty.png" id="2_u1my3"]
+[ext_resource type="Texture2D" uid="uid://brp1brdcjydew" path="res://assets/light.png" id="2_w3qnr"]
+[ext_resource type="Texture2D" uid="uid://c46ev1kkhuuhc" path="res://assets/Fire_1_128-comp_sheet.png" id="5_dvc4m"]
+[ext_resource type="AudioStream" uid="uid://oo1rh5ewaubk" path="res://assets/Fireball 2.ogg" id="6_rxyrm"]
+[ext_resource type="AudioStream" uid="uid://dt8w5cnvkahia" path="res://assets/Firebuff 2.ogg" id="7_hrxpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx7w4"]
+atlas = ExtResource("1_s1444")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72pgl"]
+atlas = ExtResource("1_s1444")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfdi7"]
+atlas = ExtResource("1_s1444")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkaj5"]
+atlas = ExtResource("1_s1444")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfb3y"]
+atlas = ExtResource("1_s1444")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfxwm"]
+atlas = ExtResource("1_s1444")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsxk6"]
+atlas = ExtResource("1_s1444")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjfty"]
+atlas = ExtResource("1_s1444")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hm310"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx7w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72pgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfdi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkaj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfb3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfxwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsxk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjfty")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u1my3")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0om8"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvc4m"]
+radius = 27.0185
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxyrm"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrxpy"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkwt6"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xfia"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlh3c"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehdsk"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a56v"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w725n"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycsxr"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5inry"]
+atlas = ExtResource("5_dvc4m")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovbrv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxyrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrxpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkwt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xfia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlh3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehdsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a56v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w725n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycsxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5inry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxyrm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Torch" type="StaticBody2D"]
+script = ExtResource("1_x0om8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -18)
+sprite_frames = SubResource("SpriteFrames_hm310")
+animation = &"empty"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, -18)
+enabled = false
+color = Color(1, 0.403137, 0.0078125, 1)
+energy = 6.0
+shadow_filter = 1
+texture = ExtResource("2_w3qnr")
+texture_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_x0om8")
+debug_color = Color(0.0686646, 0.104129, 0.976563, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_dvc4m")
+
+[node name="blast" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_ovbrv")
+
+[node name="burn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rxyrm")
+
+[node name="extinguish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hrxpy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="frame_changed" from="blast" to="." method="_on_blast_frame_changed"]

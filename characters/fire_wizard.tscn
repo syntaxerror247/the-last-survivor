@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://gfn767pnlhyq"]
+
+[ext_resource type="Texture2D" uid="uid://buh6th2trt5xu" path="res://assets/NoobGodoter sSpritesheet.png" id="1_43df2"]
+[ext_resource type="Texture2D" uid="uid://brp1brdcjydew" path="res://assets/light.png" id="2_5lebm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpu01"]
+atlas = ExtResource("1_43df2")
+region = Rect2(0, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl2eq"]
+atlas = ExtResource("1_43df2")
+region = Rect2(288, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk7ef"]
+atlas = ExtResource("1_43df2")
+region = Rect2(576, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88an7"]
+atlas = ExtResource("1_43df2")
+region = Rect2(864, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiboq"]
+atlas = ExtResource("1_43df2")
+region = Rect2(1152, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6re1p"]
+atlas = ExtResource("1_43df2")
+region = Rect2(1440, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntj8p"]
+atlas = ExtResource("1_43df2")
+region = Rect2(1728, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtw5"]
+atlas = ExtResource("1_43df2")
+region = Rect2(2016, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0knqg"]
+atlas = ExtResource("1_43df2")
+region = Rect2(2304, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svmf2"]
+atlas = ExtResource("1_43df2")
+region = Rect2(2592, 0, 288, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktcx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpu01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl2eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk7ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88an7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiboq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6re1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntj8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydtw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0knqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svmf2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FireWizard" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ktcx4")
+autoplay = "default"
+frame_progress = 0.0928613
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.403137, 0.0078125, 1)
+energy = 5.0
+shadow_filter = 1
+texture = ExtResource("2_5lebm")
+texture_scale = 2.0

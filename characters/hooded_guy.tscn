@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://c1wub5k1om375"]
+
+[ext_resource type="Texture2D" uid="uid://coqusyoxk3ul6" path="res://assets/AnimationSheet_Character.png" id="1_xlqpa"]
+[ext_resource type="Script" uid="uid://b7j7pq4xeng4o" path="res://characters/hooded_guy.gd" id="2_3pir5"]
+[ext_resource type="Texture2D" uid="uid://brp1brdcjydew" path="res://assets/light.png" id="2_kv7w6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv7w6"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph72q"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t4ke"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w1h7"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pir5"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shegc"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug6sg"]
+atlas = ExtResource("1_xlqpa")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktcx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv7w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph72q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t4ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w1h7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pir5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shegc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug6sg")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3pir5"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shegc"]
+radius = 26.0
+
+[node name="HoodedGuy" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("2_3pir5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ktcx4")
+autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 5.0
+shadow_filter = 1
+texture = ExtResource("2_kv7w6")
+texture_scale = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_3pir5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_shegc")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

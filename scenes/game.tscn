@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqerkkvi7wmwh"]
+
+[ext_resource type="PackedScene" uid="uid://485fbcwqc524" path="res://characters/player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://bs6oww5alwt23" path="res://scenes/game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dwmb22mwf3kx" path="res://objects/torch.tscn" id="3_feb5d"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ryrav"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc0e3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0742188, 0.0617523, 0.0617523, 0.572549)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.776471, 0.309804, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fc0e3")
+
+[node name="Torch0" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(235, 53)
+
+[node name="Torch1" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(83, 75)
+
+[node name="Torch2" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(370, 75)
+
+[node name="Torch3" parent="." instance=ExtResource("3_feb5d")]
+material = SubResource("CanvasItemMaterial_ryrav")
+position = Vector2(367, 242)
+
+[node name="Torch4" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(90, 242)
+
+[node name="Player" parent="." instance=ExtResource("1_e2o6t")]
+position = Vector2(234, 268)
+
+[node name="FireLine" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0)
+width = 5.0
+default_color = Color(1, 0.398438, 0, 1)
+joint_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -85.5
+offset_right = 64.5
+offset_bottom = -62.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congratulations!"
+
+[node name="DialogBox" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -138.5
+offset_top = -59.0
+offset_right = 138.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_fc0e3")
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -17.5
+offset_right = 37.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/RestartButton" to="." method="_on_restart_button_pressed"]

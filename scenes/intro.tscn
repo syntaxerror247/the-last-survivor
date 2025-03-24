@@ -1,0 +1,168 @@
+[gd_scene load_steps=18 format=3 uid="uid://by3mhwtjbr082"]
+
+[ext_resource type="Script" uid="uid://ctjc01dftawrt" path="res://scenes/intro.gd" id="1_i2l1n"]
+[ext_resource type="Texture2D" uid="uid://buh6th2trt5xu" path="res://assets/NoobGodoter sSpritesheet.png" id="3_wfs7u"]
+[ext_resource type="Texture2D" uid="uid://brp1brdcjydew" path="res://assets/light.png" id="4_es01l"]
+[ext_resource type="PackedScene" uid="uid://gfn767pnlhyq" path="res://characters/fire_wizard.tscn" id="4_y6ycx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpu01"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(0, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl2eq"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(288, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk7ef"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(576, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88an7"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(864, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiboq"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(1152, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6re1p"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(1440, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntj8p"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(1728, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtw5"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(2016, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0knqg"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(2304, 0, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svmf2"]
+atlas = ExtResource("3_wfs7u")
+region = Rect2(2592, 0, 288, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktcx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpu01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl2eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk7ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88an7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiboq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6re1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntj8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydtw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0knqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svmf2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_evndh"]
+radius = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2l1n"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0742188, 0.0617523, 0.0617523, 0.572549)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.776471, 0.309804, 0, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_i2l1n")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(219, 204)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(2, -13)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ktcx4")
+autoplay = "default"
+frame_progress = 0.0928613
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_evndh")
+debug_color = Color(0.0686646, 0.104129, 0.976563, 0.42)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(2, -13)
+scale = Vector2(0.1, 0.1)
+color = Color(1, 0.403137, 0.0078125, 1)
+energy = 3.0
+shadow_filter = 1
+texture = ExtResource("4_es01l")
+texture_scale = 2.0
+
+[node name="FireWizard0" parent="." instance=ExtResource("4_y6ycx")]
+position = Vector2(235, 53)
+scale = Vector2(0.15, 0.15)
+frame = 1
+frame_progress = 0.0
+
+[node name="FireWizard1" parent="." instance=ExtResource("4_y6ycx")]
+position = Vector2(83, 75)
+scale = Vector2(0.15, 0.15)
+flip_h = true
+
+[node name="FireWizard2" parent="." instance=ExtResource("4_y6ycx")]
+position = Vector2(370, 75)
+scale = Vector2(0.15, 0.15)
+
+[node name="FireWizard3" parent="." instance=ExtResource("4_y6ycx")]
+position = Vector2(367, 242)
+scale = Vector2(0.15, 0.15)
+frame_progress = 0.0
+
+[node name="FireWizard4" parent="." instance=ExtResource("4_y6ycx")]
+position = Vector2(90, 242)
+scale = Vector2(0.15, 0.15)
+frame_progress = 0.0
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogBox" type="Label" parent="CanvasLayer"]
+offset_left = 89.0
+offset_top = 277.0
+offset_right = 366.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_i2l1n")
+vertical_alignment = 1

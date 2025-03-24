@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://diq8p3i4cyjs5"
+path="res://.godot/imported/9 Searching Further INTRO TomMusic.ogg-dab75c7e0fb8e80d77dd264d98c23e16.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/9 Searching Further INTRO TomMusic.ogg"
+dest_files=["res://.godot/imported/9 Searching Further INTRO TomMusic.ogg-dab75c7e0fb8e80d77dd264d98c23e16.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
