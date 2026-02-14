@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://485fbcwqc524"]
+[gd_scene format=3 uid="uid://485fbcwqc524"]
 
 [ext_resource type="Script" uid="uid://c77d3kke4t8jn" path="res://characters/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://brp1brdcjydew" path="res://assets/light.png" id="3_tory2"]
@@ -85,23 +85,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_evndh"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1617159524]
 motion_mode = 1
 script = ExtResource("1_rkbax")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1600883414]
 position = Vector2(2, -13)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_ktcx4")
 autoplay = "default"
 frame_progress = 0.0928613
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1909420115]
 position = Vector2(1, -7)
 shape = SubResource("CircleShape2D_evndh")
 debug_color = Color(0.0686646, 0.104129, 0.976563, 0.42)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1470675431]
 position = Vector2(2, -13)
 scale = Vector2(0.1, 0.1)
 color = Color(1, 0.403137, 0.0078125, 1)

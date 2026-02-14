@@ -40,8 +40,8 @@ func _ready() -> void:
 	dialog_box.hide()
 	restart_button.hide()
 
-func start(position: Vector2, fire_wizard_positions: Array[Vector2]) -> void:
-	player.position = position
+func start(pos: Vector2, fire_wizard_positions: Array[Vector2]) -> void:
+	player.position = pos
 	required_positions = fire_wizard_positions
 	dialog_box.hide()
 	restart_button.hide()
@@ -75,11 +75,11 @@ func animate_segment(start_pos: Vector2, end_pos: Vector2) -> void:
 func add_fire_point(pos: Vector2) -> void:
 	fire_line.add_point(pos)
 
-func update_torch_status(is_burning: bool, position: Vector2) -> void:
+func update_torch_status(is_burning: bool, pos: Vector2) -> void:
 	if is_burning:
-		torches.append(position)
+		torches.append(pos)
 	else:
-		torches.erase(position)
+		torches.erase(pos)
 	
 	if torches.size() == 5:
 		fire_line.clear_points()
@@ -126,19 +126,19 @@ func display_loss_dialogue() -> void:
 		$Timer.start()
 		attempt_count += 1
 
-func animate_text(name: String, text: String, speed: float, callback: Callable = Callable()) -> void:
+func animate_text(character_name: String, text: String, speed: float, callback: Callable = Callable()) -> void:
 	tween = get_tree().create_tween()
 	dialog_box.text = ""
 	
 	for i in range(text.length()):
-		tween.tween_callback(_set_dialog_text.bind(text.substr(0, i + 1), name))
+		tween.tween_callback(_set_dialog_text.bind(text.substr(0, i + 1), character_name))
 		tween.tween_interval(speed)
 	
 	if callback.is_valid():
 		tween.tween_callback(callback)
 
-func _set_dialog_text(new_text: String, name: String) -> void:
-	dialog_box.text = "%s :-  %s" % [name, new_text]
+func _set_dialog_text(new_text: String, character_name: String) -> void:
+	dialog_box.text = "%s :-  %s" % [character_name, new_text]
 
 
 func spawn_hooded_guy() -> void:
